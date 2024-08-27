@@ -1,0 +1,20 @@
+services:
+  frontend:
+    build: 
+      context: ./front-end
+      dockerfile: Dockerfile
+    image: web-app:latest
+    depends_on:
+      - backend
+  backend:
+    build: 
+      context: ./back-end
+      dockerfile: Dockerfile
+    image: my-backend:latest
+  proxy:
+    build:
+      context: ./proxy
+      dockerfile: dockerfile
+    image: proxysy:latestt
+    ports: 
+      - "80:80"
